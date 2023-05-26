@@ -23,4 +23,16 @@ public class Concesionario {
 	        }
 	        
 	    }
+	  public List<Vehiculo> buscarVehiculos(String marca, String modelo, int año) {
+	        List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
+	        for (Vehiculo vehiculo : inventario) {
+	            if ((marca == null || vehiculo.getMarca().equals(marca))
+	                    && (modelo == null || vehiculo.getModelo().equals(modelo))
+	                    && (año == 0 || vehiculo.getAño() == año)) {
+	                vehiculosEncontrados.add(vehiculo);
+	            }
+	        }
+	        return vehiculosEncontrados;
+	    }
+
 }
