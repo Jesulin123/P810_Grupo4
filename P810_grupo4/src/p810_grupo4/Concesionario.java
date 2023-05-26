@@ -17,7 +17,10 @@ public class Concesionario {
 	    }
 	  public void mostrarVehiculosDisponibles() {
 	        List<Vehiculo> vehiculosDisponibles = new ArrayList<>(inventario);
-	        
+	        Collections.sort(vehiculosDisponibles, Comparator.comparingDouble(Vehiculo::getPrecio));
+	        for (Vehiculo vehiculo : vehiculosDisponibles) {
+	            System.out.println(vehiculo.toString());
+	        }
 	        
 	    }
 }
