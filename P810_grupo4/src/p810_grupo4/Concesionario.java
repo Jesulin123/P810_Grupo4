@@ -10,5 +10,7 @@ public class Concesionario {
         inventario = new ArrayList<>();
     }
 
-	
+	 public void agregarVehiculo(Vehiculo vehiculo) {
+	        inventario.add(vehiculo);
+	    }
 }
