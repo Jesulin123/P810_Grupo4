@@ -1,6 +1,8 @@
 package p810_grupo4;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Concesionario {
@@ -12,5 +14,10 @@ public class Concesionario {
 
 	 public void agregarVehiculo(Vehiculo vehiculo) {
 	        inventario.add(vehiculo);
+	    }
+	  public void mostrarVehiculosDisponibles() {
+	        List<Vehiculo> vehiculosDisponibles = new ArrayList<>(inventario);
+	        
+	        
 	    }
 }
