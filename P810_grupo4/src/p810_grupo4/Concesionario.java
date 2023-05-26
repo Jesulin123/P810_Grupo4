@@ -37,5 +37,9 @@ public class Concesionario {
 	  public Vehiculo obtenerVehiculoMasCaro() {
 	        return Collections.max(inventario, Comparator.comparingDouble(Vehiculo::getPrecio));
 	    }
+	  
+	  public Vehiculo obtenerVehiculoMasBarato() {
+	        return Collections.min(inventario, Comparator.comparingDouble(Vehiculo::getPrecio));
+	    }
 
 }
