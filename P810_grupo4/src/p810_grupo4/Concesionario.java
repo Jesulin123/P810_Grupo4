@@ -22,8 +22,6 @@ public class Concesionario {
 
 	public Vehiculo buscarVehiculo(String marca, String modelo, int ano) {
 		for (Vehiculo vehiculo : this.vehiculosDisponibles) {
-			// Para que este código funcione, necesitarás implementar los métodos
-			// getMarca(), getModelo() y getAno() en la clase Vehiculo.
 			if (vehiculo.getMarca().equals(marca) && vehiculo.getModelo().equals(modelo) && vehiculo.getAno() == ano) {
 				return vehiculo;
 			}
