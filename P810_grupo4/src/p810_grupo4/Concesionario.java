@@ -62,4 +62,19 @@ for (Vehiculo vehiculo : vehiculosDisponibles) {
     }
 }
 
+
+public List<Vehiculo> buscarVehiculos1(String marca, String modelo, int año) {
+    List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
+    for (Vehiculo vehiculo : inventario) {
+        if ((marca == null || vehiculo.getMarca().equals(marca))
+                && (modelo == null || vehiculo.getModelo().equals(modelo))
+                && (año == 0 || vehiculo.getAño() == año)) {
+            vehiculosEncontrados.add(vehiculo);
+        }
+    }
+               
+return vehiculosEncontrados;
+}
+
+
 }
