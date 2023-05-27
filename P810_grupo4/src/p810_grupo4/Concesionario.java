@@ -43,11 +43,11 @@ public class Concesionario {
 	    }
 	  
 
-public void venderVehiculo(Vehiculo vehiculo, Cliente cliente) {
-        if (inventario.contains(vehiculo)) {
-            inventario.remove(vehiculo);
-            cliente.agregarVehiculoComprado(vehiculo);
-            System.out.println(inventario.remove(vehiculo)+cliente.agregar+"Vehículo vendido: " + vehiculo.toString());
+public void venderVehiculo(String string, String string2) {
+        if (inventario.contains(string)) {
+            inventario.remove(string);
+            string2.agregarVehiculoComprado(string);
+            System.out.println(inventario.remove(string)+string2.agregar+"Vehículo vendido: " + string.toString());
         } else {
             System.out.println("El vehículo no está disponible en el inventario.");
         }

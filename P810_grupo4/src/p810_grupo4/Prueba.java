@@ -1,5 +1,7 @@
 package p810_grupo4;
 
+import java.util.List;
+
 public class Prueba {
 
 
@@ -23,6 +25,14 @@ public class Prueba {
         String marcaBusqueda = "kia";
         String modeloBusqueda = null;
         int añoBusqueda = 2020;
+        
+        System.out.println("Resultados de la búsqueda:");
+        List<Vehiculo> vehiculosEncontrados = concesionario.buscarVehiculos(marcaBusqueda, modeloBusqueda, añoBusqueda);
+        for (Vehiculo vehiculo : vehiculosEncontrados) {
+            System.out.println(vehiculo.toString());
+        }
+
+    
     }
     
 }
