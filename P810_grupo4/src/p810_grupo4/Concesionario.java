@@ -1,89 +1,52 @@
 package p810_grupo4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Concesionario {
-	private List<Vehiculo> inventario;
-    
+	private List<Vehiculo> vehiculosDisponibles;
+
 	public Concesionario() {
-        inventario = new ArrayList<>();
-    }
+		this.vehiculosDisponibles = new ArrayList<>();
+	}
 
-	 public void agregarVehiculo(Vehiculo vehiculo) {
-	        inventario.add(vehiculo);
-	    }
-	  public void mostrarVehiculosDisponibles() {
-	        List<Vehiculo> vehiculosDisponibles = new ArrayList<>(inventario);
-	        Collections.sort(vehiculosDisponibles, Comparator.comparingDouble(Vehiculo::getPrecio));
-	        for (Vehiculo vehiculo : vehiculosDisponibles) {
-	            System.out.println(vehiculo.toString());
-	        }
-	        
-	    }
-	  public List<Vehiculo> buscarVehiculos(String marca, String modelo, int año) {
-	        List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
-	        for (Vehiculo vehiculo : inventario) {
-	            if ((marca == null || vehiculo.getMarca().equals(marca))
-	                    && (modelo == null || vehiculo.getModelo().equals(modelo))
-	                    && (año == 0 || vehiculo.getAño() == año)) {
-	                vehiculosEncontrados.add(vehiculo);
-	            }
-	        }
-	        return vehiculosEncontrados;
-	    }
-	  public Vehiculo obtenerVehiculoMasCaro() {
-	        return Collections.max(inventario, Comparator.comparingDouble(Vehiculo::getPrecio));
-	    }
-	  
-	  public Vehiculo obtenerVehiculoMasBarato() {
-	        return Collections.min(inventario, Comparator.comparingDouble(Vehiculo::getPrecio));
-	    }
-	  
+	public void agregarVehiculo(Vehiculo vehiculo) {
+		this.vehiculosDisponibles.add(vehiculo);
+	}
 
-public void venderVehiculo(String string, String string2) {
-        if (inventario.contains(string)) {
-            inventario.remove(string);
-            string2.agregarVehiculoComprado(string);
-            System.out.println(inventario.remove(string)+string2.agregar+"Vehículo vendido: " + string.toString());
-        } else {
-            System.out.println("El vehículo no está disponible en el inventario.");
-        }
-    }
+	public void mostrarVehiculosOrdenados() {
+		Collections.sort(this.vehiculosDisponibles);
+		for (Vehiculo vehiculo : this.vehiculosDisponibles) {
+			System.out.println(vehiculo);
+		}
+	}
 
-public void mostrarVehiculosDisponibles1() {
-    List<Vehiculo> vehiculosDisponibles = new ArrayList<>(inventario);
-    Collections.sort(vehiculosDisponibles, Comparator.comparingDouble(Vehiculo::getPrecio));
-    
-for (Vehiculo vehiculo : vehiculosDisponibles) {
-        System.out.println(vehiculo.toString());
-    }
-}
+	public Vehiculo buscarVehiculo(String marca, String modelo, int ano) {
+		for (Vehiculo vehiculo : this.vehiculosDisponibles) {
+			// Para que este código funcione, necesitarás implementar los métodos
+			// getMarca(), getModelo() y getAno() en la clase Vehiculo.
+			if (vehiculo.getMarca().equals(marca) && vehiculo.getModelo().equals(modelo) && vehiculo.getAno() == ano) {
+				return vehiculo;
+			}
+		}
+		return null;
+	}
 
+	public void mostrarVehiculoMasCaroYBarato() {
+		if (this.vehiculosDisponibles.isEmpty()) {
+			System.out.println("No hay vehículos disponibles.");
+			return;
+		}
 
-public List<Vehiculo> buscarVehiculos1(String marca, String modelo, int año) {
-    List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
-    for (Vehiculo vehiculo : inventario) {
-        if ((marca == null || vehiculo.getMarca().equals(marca))
-                && (modelo == null || vehiculo.getModelo().equals(modelo))
-                && (año == 0 || vehiculo.getAño() == año)) {
-            vehiculosEncontrados.add(vehiculo);
-        }
-    }
-               
-return vehiculosEncontrados;
-}
+		Collections.sort(this.vehiculosDisponibles);
+		System.out.println("Vehículo más barato: " + this.vehiculosDisponibles.get(0));
+		System.out.println("Vehículo más caro: " + this.vehiculosDisponibles.get(this.vehiculosDisponibles.size() - 1));
+	}
 
-public Vehiculo obtenerVehiculoMasCaro1() {
-    return Collections.max(inventario, Comparator.comparingDouble(Vehiculo.getPrecio));
-}
-
-
-
-public Vehiculo obtenerVehiculoMasBarato1() {
-    return Collections.min(inventario, Comparator.comparingDouble(Vehiculo.getPrecio));
-}
-
+	public void venderVehiculo(Vehiculo vehiculo, Cliente cliente) {
+		if (this.vehiculosDisponibles.remove(vehiculo)) {
+			cliente.comprarVehiculo(vehiculo);
+		} else {
+			System.out.println("Lo siento, el vehículo ya no está disponible.");
+		}
+	}
 }
