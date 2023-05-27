@@ -15,6 +15,14 @@ public class Prueba {
         concesionario.agregarVehiculo(vehiculo2);
         concesionario.agregarVehiculo(vehiculo3);
 
+
+        System.out.println("Vehículos disponibles:");
+        concesionario.mostrarVehiculosDisponibles();
+
+        System.out.println("Búsqueda de vehículos:");
+        String marcaBusqueda = "kia";
+        String modeloBusqueda = null;
+        int añoBusqueda = 2020;
     }
     
 }
