@@ -1,8 +1,10 @@
 package p810_grupo4;
 
+import java.util.function.ToDoubleFunction;
 
 public class Vehiculo implements Comparable<Vehiculo>{
-    private String marca;
+    public static ToDoubleFunction getPrecio;
+	private String marca;
     private String modelo;
     private int año;
     private int precio;

@@ -76,5 +76,14 @@ public List<Vehiculo> buscarVehiculos1(String marca, String modelo, int año) {
 return vehiculosEncontrados;
 }
 
+public Vehiculo obtenerVehiculoMasCaro1() {
+    return Collections.max(inventario, Comparator.comparingDouble(Vehiculo.getPrecio));
+}
+
+
+
+public Vehiculo obtenerVehiculoMasBarato1() {
+    return Collections.min(inventario, Comparator.comparingDouble(Vehiculo.getPrecio));
+}
 
 }
