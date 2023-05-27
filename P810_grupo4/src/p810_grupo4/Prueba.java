@@ -31,7 +31,16 @@ public class Prueba {
         for (Vehiculo vehiculo : vehiculosEncontrados) {
             System.out.println(vehiculo.toString());
         }
+        
+        Vehiculo vehiculoMasCaro = concesionario.obtenerVehiculoMasCaro();
+        System.out.println("Vehículo más caro: " + vehiculoMasCaro.toString());
 
+        Vehiculo vehiculoMasBarato = concesionario.obtenerVehiculoMasBarato();
+        System.out.println("Vehículo más barato: " + vehiculoMasBarato.toString());
+
+
+        Cliente cliente = new Cliente("Ruben");
+        concesionario.venderVehiculo("seat", "Ruben");
     
     }
     
